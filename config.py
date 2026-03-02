@@ -1,7 +1,5 @@
-"""
-SoClose.co - X/Twitter Bulk DM Sender
+# SoClose.co - X/Twitter Bulk DM Sender
 Configuration and branding constants.
-"""
 
 import os
 from dotenv import load_dotenv
@@ -17,14 +15,14 @@ BRAND_URL = "https://soclose.co"
 BRAND_TAGLINE = "Digital Innovation Through Automation & AI"
 
 # Rich color theme (SoClose brand palette)
-COLOR_PRIMARY = "#1b1b1b"
-COLOR_ACCENT = "#c5c1b9"
-COLOR_FOCUS = "#575ECF"
-COLOR_SUCCESS = "#2ecc71"
-COLOR_ERROR = "#e74c3c"
-COLOR_WARNING = "#f39c12"
+COLOR_PRIMARY =="#1b1b1b"
+COLOR_ACCENT =="#c5c1b9"
+COLOR_FOCUS =="#575ECF"
+COLOR_SUCCESS =="#2ecc71"
+COLOR_ERROR =="#e74c3c"
+COLOR_WARNING =="#f39c12"
 
-BANNER = f"""[bold {COLOR_FOCUS}]
+BANNER = f"[bold {COLOR_FOCUS}]
   ███████╗  ██████╗   ██████╗ ██╗      ██████╗  ███████╗ ███████╗
   ██╔════╝ ██╔═══██╗ ██╔════╝ ██║     ██╔═══██╗ ██╔════╝ ██╔════╝
   ███████╗ ██║   ██║ ██║      ██║     ██║   ██║ ███████╗ █████╗
@@ -33,8 +31,7 @@ BANNER = f"""[bold {COLOR_FOCUS}]
   ╚══════╝  ╚═════╝   ╚═════╝ ╚══════╝ ╚═════╝  ╚══════╝ ╚══════╝
 [/]
 [{COLOR_ACCENT}]  {BRAND_TAGLINE}[/]
-[dim]  v{APP_VERSION} | {BRAND_URL}[/]
-"""
+[dim]  v{APP_VERSION} | {BRAND_URL}[/]"]
 
 # ──────────────────────────────────────────────────────────────
 # Selenium / Automation
