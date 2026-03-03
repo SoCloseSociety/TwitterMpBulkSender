@@ -5,8 +5,13 @@ Configuration and branding constants.
 
 import os
 from dotenv import load_dotenv
+from vault_client import VaultClient  # Assuming a hypothetical secure vault client
 
 load_dotenv()
+vault = VaultClient()  # Initialize the vault client
+
+def get_secret(key):
+    return vault.get_secret(key)
 
 # ──────────────────────────────────────────────────────────────
 # Brand
@@ -24,7 +29,7 @@ COLOR_SUCCESS = "#2ecc71"
 COLOR_ERROR = "#e74c3c"
 COLOR_WARNING = "#f39c12"
 
-BANNER = f"""[bold {COLOR_FOCUS}]
+BANNER = f"[bold {COLOR_FOCUS}]
   ███████╗  ██████╗   ██████╗ ██╗      ██████╗  ███████╗ ███████╗
   ██╔════╝ ██╔═══██╗ ██╔════╝ ██║     ██╔═══██╗ ██╔════╝ ██╔════╝
   ███████╗ ██║   ██║ ██║      ██║     ██║   ██║ ███████╗ █████╗
@@ -34,7 +39,7 @@ BANNER = f"""[bold {COLOR_FOCUS}]
 [/]
 [{COLOR_ACCENT}]  {BRAND_TAGLINE}[/]
 [dim]  v{APP_VERSION} | {BRAND_URL}[/]
-"""
+"
 
 # ──────────────────────────────────────────────────────────────
 # Selenium / Automation
