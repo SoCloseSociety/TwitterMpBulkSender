@@ -1,8 +1,3 @@
-"""
-SoClose.co - X/Twitter Bulk DM Sender
-Browser management: Chrome setup, login flow, navigation.
-"""
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -10,9 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
-
-from config import X_LOGIN_URL, X_BASE_URL, TIMEOUT, SELECTOR_USERNAME
-
 
 def setup_driver():
     """Configure and return a Chrome WebDriver instance."""
@@ -29,17 +21,15 @@ def setup_driver():
     driver.maximize_window()
 
     # Remove webdriver flag to reduce detection
-    driver.execute_script(
-        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-    )
+    driver.execute_cdp_cmd('Network.setUserAgentOverride', {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    })
 
     return driver
-
 
 def open_login_page(driver):
     """Navigate to X/Twitter login page."""
     driver.get(X_LOGIN_URL)
-
 
 def navigate_to_profile(driver, profile_path):
     """
@@ -56,7 +46,6 @@ def navigate_to_profile(driver, profile_path):
         return True
     except TimeoutException:
         return False
-
 
 def close_driver(driver):
     """Safely close the browser."""
